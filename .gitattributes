@@ -22,6 +22,6 @@ dome_points/ArHosekSkyModelData_CIEXYZ.h   linguist-vendored
 dome_points/ArHosekSkyModelData_RGB.h      linguist-vendored
 dome_points/ArHosekSkyModelData_Spectral.h linguist-vendored
 
-# skymodel/3d_models/* linguist-vendored
+skymodel/3d_models/* linguist-vendored
 skymodel/js/ColladaLoader.js linguist-vendored
 
