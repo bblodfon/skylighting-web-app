@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8'/>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script type="text/javascript" src="js/skylightdome.js"></script>
+		<script type="text/javascript" src="js/three.min.js"></script>
+		<script type="text/javascript" src="js/ColladaLoader.js"></script>
+	</head>
+	<body style='margin:2px' onload='requestSceneRendering()'>
+	<div id="left">
+		<table>
+			<tr>
+				<th>Turbidity:<th/>
+				<th> <input type="text" id="turbidity" value="4" class="inputText"><th/>
+			</tr>
+			<tr>
+				<th>Solar Elavation:<th/>
+				<th> <input type="text" id="solar_elevation" value="50" class="inputText"><th/>
+			</tr>
+			<tr>
+				<th>Albedo value:<th/>
+				<th> <input type="text" id="albedo" value="0.75" class="inputText"><th/>
+			</tr>
+			<tr>
+				<th>3D Model:<th/>
+				<th> <select id="3dmodel" onchange="checkIfDemoPlaying(this)">
+						<option value="0">No 3D-Model</option>
+						<option value="1">Horse</option>
+						<option value="2">Dinosaur</option>
+						<option value="3">Sphere</option>
+						<option value="4">SittingBox</option>
+						<option value="5">Monster</option>
+						<option value="6">Avatar</option>
+					</select>
+				<th/>
+			</tr>
+		</table>
+		<br>
+		<button type="button" onclick="requestSceneRendering()" class="myButton"> Generate a Sky Dome Sample </button>
+		</br>
+		<br>
+		<button type="button" onclick="playDemo()" class="demoButton"> Play a Demo! </button>
+		</br>
+		<br>
+		<button type="button" onclick="stopDemo()" class="demoButton2"> Stop the Demo! </button>
+		</br>
+		<br/>
+		<div id="posX" hidden>0</div>
+		<div id="posZ" hidden>40</div>
+		<div id="rotY" hidden>0</div>
+		<div id="rotX" hidden>0</div>
+		<div id="drag" hidden>0</div>
+		<div id="intervalId" hidden>0</div>
+		<div id="playingDemo" hidden>0</div>
+		<div id="demoId" hidden>0</div>
+		<div id="animeId" hidden>0</div>
+		<div id="selectId" hidden>0</div>
+		<!-- solarElevationForDemo:!--> <div id="solarElevationForDemo" hidden>1.0</div> 
+	</div>
+	<div id="right">
+		<canvas id='DomeCanvas' style='position: absolute; background-color: black;' width="650" height="550" tabindex='1'> </canvas>
+	</div>
+	</body>
+</html>
