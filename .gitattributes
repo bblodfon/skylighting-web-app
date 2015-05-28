@@ -17,3 +17,4 @@
 *.RTF	 diff=astextplain
 
 dome_points/* linguist-vendored
+skymodel/3d_models/* linguist-vendored
