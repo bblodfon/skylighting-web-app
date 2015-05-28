@@ -18,3 +18,4 @@
 
 dome_points/* linguist-vendored
 skymodel/3d_models/* linguist-vendored
+skymodel/js/ColladaLoader.js linguist-vendored
