@@ -16,4 +16,5 @@
 *.rtf	 diff=astextplain
 *.RTF	 diff=astextplain
 
-dome_points/dome_points.c linguist-vendored=true
+dome_points/* linguist-vendored
+dome_points.c linguist-vendored=true
