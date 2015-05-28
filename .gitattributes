@@ -16,5 +16,5 @@
 *.rtf	 diff=astextplain
 *.RTF	 diff=astextplain
 
-ArHosekSkyModelData_CIEXYZ.h linguist-vendored=false
-ArHosekSkyModelData_CIERGB.h linguist-vendored=false
+dome_points/ArHosekSkyModelData_CIEXYZ.h linguist-vendored=true
+dome_points/ArHosekSkyModelData_RGB.h linguist-vendored=true
