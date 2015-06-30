@@ -8,6 +8,6 @@ In this thesis we study and briefly examine different skylight models that have 
 To run the application, just put the skymodel folder inside a web-server (e.g. inside pathToXAMPP/htdocs/ for windows, or in /var/www for Linux) and go to http://localhost/skymodel/skydome.html. In Linux you need to re-compile the dome_points source with this:
 
 <code>gcc -std=c99 dome_points.c ArHosekSkyModel.c -o dome_points</code><br>
-and change the dome.php to run it like this (Linux way): ./dome_points (etc)
+and change the dome.php to run it like this (Linux way): <code>./dome_points</code>
 
 Note that the Demo function re-draws the scene every second (I know it should do just an update - but didn't have the time to implement it that way) and because the loading of some 3d models takes more than 4 secs (the dinosaur for example), you will see nothing more than black screen on these occasions (more info on the document).
