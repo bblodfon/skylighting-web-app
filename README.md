@@ -12,7 +12,7 @@ The following installation is based on the web-server Apache 2.4.18 and PHP 7.0.
 - Create the **dome_points** executable by running inside the *dome_points* directory:
 ```
 gcc -std=c99 dome_points.c ArHosekSkyModel.c -o dome_points -lm
-cp dome_points /var/www/html/skymodel234/
+cp dome_points /var/www/html/skymodel/
 ```
 - Go to http://localhost/skymodel/skydome.html.
 
