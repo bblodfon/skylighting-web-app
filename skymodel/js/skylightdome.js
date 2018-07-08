@@ -305,7 +305,7 @@ function drawDomeOnCanvas(result){
 		antialias  : true,
 		canvas : CANVAS
 	});
-	RENDERER.shadowMapEnabled = false;
+	RENDERER.shadowMap.enabled = false;
 	//RENDERER.shadowMapType = THREE.PCFShadowMap;
 	
 	//create the scene
@@ -431,7 +431,8 @@ function drawDomeOnCanvas(result){
 	var domeGeometry = new THREE.BufferGeometry();
 	domeGeometry.addAttribute('position',new THREE.BufferAttribute(dome_points,3));
 	domeGeometry.addAttribute('color',new THREE.BufferAttribute(colors_points,3));
-	domeGeometry.addAttribute('index',new THREE.BufferAttribute(triangle_indices,3));
+	// domeGeometry.addAttribute('index',new THREE.BufferAttribute(triangle_indices,3));
+	domeGeometry.setIndex(new THREE.BufferAttribute(triangle_indices,1))
 	var material = new THREE.MeshBasicMaterial( { vertexColors: THREE.VertexColors, side: THREE.DoubleSide } );
 	var domeMesh = new THREE.Mesh( domeGeometry, material );
 	SCENE.add(domeMesh);
@@ -453,22 +454,44 @@ function drawDomeOnCanvas(result){
 	var planeBufferGeometry = new THREE.PlaneBufferGeometry (2000, 2000); // R=1000 (dome radius)
 	var planeColor = new THREE.Color("#8B4513"); 	// SaddleBrown 
 	//var planeColor = new THREE.Color("#F4A460"); 	// SandyBrown
-	var planeMaterial = new THREE.MeshLambertMaterial( {
+	
+	function createPlaneMaterial(planeColor) {
+ 	   var material = new THREE.MeshLambertMaterial(); // create a material
+	   var loader = new THREE.TextureLoader().load(
+           // resource URL
+           'images/funkyGround.jpg',
+           // Function when resource is loaded
+           function ( texture ) { 
+				material.map = texture;
+				material.map.wrapS = THREE.RepeatWrapping;
+				material.map.wrapT = THREE.RepeatWrapping;
+				material.map.repeat.set(500,500);
+				material.map.repeat.x = 50;
+				material.map.repeat.y = 50;
+				material.color = planeColor;
+           });
+           return material; // return the material
+        }
+	
+	var planeMaterial = createPlaneMaterial(planeColor);
+	
+	/*var planeMaterial = new THREE.MeshLambertMaterial( {
 		color: planeColor,
 		map: THREE.ImageUtils.loadTexture('images/funkyGround.jpg')
 		//map: THREE.ImageUtils.loadTexture('images/earth_rigid.jpg') / for change :)
-	});
+	});*/
+
 	var planeMesh = new THREE.Mesh(planeBufferGeometry, planeMaterial);
-	planeMaterial.map.wrapS = THREE.RepeatWrapping;
+	/* PlaneMaterial.map.wrapS = THREE.RepeatWrapping;
 	planeMaterial.map.wrapT = THREE.RepeatWrapping;
-	planeMaterial.map.repeat.set(500,500);
+	planeMaterial.map.repeat.set(500,500); */
 	planeMesh.position.set(0,0,0); //center of the ground quad
 	planeMesh.rotateX(-Math.PI/2); //set it horizontally because planeBufferGeometry is along X,Y
 	planeMesh.castShadow = false;
 	planeMesh.receiveShadow = true;
-	planeMaterial.map.repeat.x = planeMaterial.map.repeat.y = 50;
+	//planeMaterial.map.repeat.x = planeMaterial.map.repeat.y = 50;
 	SCENE.add(planeMesh);
-	
+
 	// add a model
 	var whatToLoad = parseInt(document.getElementById('selectId').innerHTML);
 	// 1 = horse, 2 = dinosaur, 3 = simple sphere, 4 = sittingBox, 5 = monster, 6 = avatar, 0 = No 3D-Model
