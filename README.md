@@ -1,5 +1,5 @@
 # skylighting-Web-app
-My thesis code for AUEB (Athen University of Economics and Business - Computer Science Program)
+My thesis code for the MSc in AUEB (Athen University of Economics and Business)
 
 ## Abstract
 
