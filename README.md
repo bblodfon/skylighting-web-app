@@ -1,4 +1,4 @@
-# skylighting-Web-app
+# skylighting-web-app
 My thesis code for the MSc in AUEB (Athen University of Economics and Business)
 
 ## Abstract
